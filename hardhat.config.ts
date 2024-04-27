@@ -116,6 +116,7 @@ const config: HardhatUserConfig = {
     deployments: "./deployments",
     sources: "./contracts",
     tests: "./test",
+    imports: "./lib",
   },
   preprocess: {
     eachLine: removeConsoleLog(
@@ -125,7 +126,7 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: "0.8.23",
+        version: "0.8.19",
         settings: {
           metadata: {
             // Not including the metadata hash
