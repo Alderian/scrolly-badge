@@ -1,17 +1,12 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.19;
 
 import { Attestation } from "@eas/contracts/IEAS.sol";
 
-import { Base64 } from "@openzeppelin/contracts/utils/Base64.sol";
 import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";
-import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 
 import { ScrollBadgeAccessControl } from
     "@canva-contracts/badge/extensions/ScrollBadgeAccessControl.sol";
-import { ScrollBadgeCustomPayload } from
-    "@canva-contracts/badge/extensions/ScrollBadgeCustomPayload.sol";
 import { ScrollBadgeDefaultURI } from "@canva-contracts/badge/extensions/ScrollBadgeDefaultURI.sol";
 import { ScrollBadgeEligibilityCheck } from
     "@canva-contracts/badge/extensions/ScrollBadgeEligibilityCheck.sol";
@@ -21,16 +16,17 @@ import { ScrollBadgeSingleton } from "@canva-contracts/badge/extensions/ScrollBa
 import { ScrollBadge } from "@canva-contracts/badge/ScrollBadge.sol";
 import { Unauthorized } from "@canva-contracts/Errors.sol";
 
+import { IActivityPoints } from "../interfaces/IActivityPoints.sol";
+
 function decodePayloadData(bytes memory data) pure returns (uint8) {
     return abi.decode(data, (uint8));
 }
 
-interface IActivityPoints {
-    function getPoints(address user_) external view returns (uint256);
-}
-
-/// @title ScrollBadgeLevelsScrolly
-/// @notice A badge that represents the Scrolly user's level.
+/**
+ * @title ScrollBadgeLevelsScrolly
+ * @author Alderian
+ * @notice A badge that represents the Scrolly user's level.
+ */
 contract ScrollBadgeLevelsScrolly is
     ScrollBadgeAccessControl,
     ScrollBadgeDefaultURI,

@@ -3,8 +3,8 @@ import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { ethers } from "hardhat";
 
 import type { Contracts, Signers } from "../shared/types";
-import { testLock } from "./lock/Lock";
 import { testScrollBadgeLevelsScrolly } from "./badge/ScrollBadgeLevelsScrolly";
+import { testLock } from "./lock/Lock";
 
 describe("Unit tests", function () {
   before(async function () {
