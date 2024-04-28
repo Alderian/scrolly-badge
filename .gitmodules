@@ -1,3 +1,0 @@
-[submodule "lib/canva-contracts"]
-	path = lib/canva-contracts
-	url = git@github.com:scroll-tech/canvas-contracts.git

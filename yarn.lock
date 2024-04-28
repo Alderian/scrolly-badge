@@ -275,7 +275,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethereum-attestation-service/eas-contracts@npm:^1.4.1":
+"@ethereum-attestation-service/eas-contracts@npm:^1.3.7, @ethereum-attestation-service/eas-contracts@npm:^1.4.1":
   version: 1.4.1
   resolution: "@ethereum-attestation-service/eas-contracts@npm:1.4.1"
   dependencies:
@@ -1531,14 +1531,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openzeppelin/contracts-upgradeable@npm:^4.9.6":
+"@openzeppelin/contracts-upgradeable@npm:^4.9.3, @openzeppelin/contracts-upgradeable@npm:^4.9.6":
   version: 4.9.6
   resolution: "@openzeppelin/contracts-upgradeable@npm:4.9.6"
   checksum: 10/af9057147f13b6f0e13ca69581777f615f2cce8c6c274ec00fbea906a9095cd9ca1fb70e2c1282122a9f522fd639641c180bf1ad79bb2722494aac5ae9e565bc
   languageName: node
   linkType: hard
 
-"@openzeppelin/contracts@npm:^4.9.6":
+"@openzeppelin/contracts@npm:^4.9.3, @openzeppelin/contracts@npm:^4.9.6":
   version: 4.9.6
   resolution: "@openzeppelin/contracts@npm:4.9.6"
   checksum: 10/71f45ad42e68c0559be4ba502115462a01c76fc805c08d3005c10b5550a093f1a2b00b2d7e9d6d1f331e147c50fd4ad832f71c4470ec5b34f5a2d0751cd19a47
@@ -2785,6 +2785,18 @@ __metadata:
   version: 6.3.0
   resolution: "camelcase@npm:6.3.0"
   checksum: 10/8c96818a9076434998511251dcb2761a94817ea17dbdc37f47ac080bd088fc62c7369429a19e2178b993497132c8cbcf5cc1f44ba963e76782ba469c0474938d
+  languageName: node
+  linkType: hard
+
+"canva-contracts@github:scroll-tech/canvas-contracts":
+  version: 0.0.1
+  resolution: "canva-contracts@https://github.com/scroll-tech/canvas-contracts.git#commit=6361dd035db4d2ad2176f2f65f827f65e3c2b741"
+  dependencies:
+    "@ethereum-attestation-service/eas-contracts": "npm:^1.3.7"
+    "@openzeppelin/contracts": "npm:^4.9.3"
+    "@openzeppelin/contracts-upgradeable": "npm:^4.9.3"
+    solmate: "npm:^6.2.0"
+  checksum: 10/aee4c4f50f09b622e7c3293418fd30087597f361b9ab84561c7855d7cf4e26f7ec0a6e4ca172278f30f796709f13727d594da0c3bc35cd8dfc21392019f7c2a0
   languageName: node
   linkType: hard
 
@@ -6706,6 +6718,7 @@ __metadata:
     "@types/node": "npm:^20.11.17"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
+    canva-contracts: "github:scroll-tech/canvas-contracts"
     chai: "npm:4.4.1"
     chalk: "npm:4.1.2"
     cross-env: "npm:^7.0.3"
@@ -7026,6 +7039,13 @@ __metadata:
   bin:
     solidity-coverage: plugins/bin.js
   checksum: 10/fe2034545874b33157f09cdec2ba4c9ad18b6a1491dfb817f8966f237cb3bb4b73a54c7fef600e782d806b37d03be648aa0bc8d30842278628e766384a450ef1
+  languageName: node
+  linkType: hard
+
+"solmate@npm:^6.2.0":
+  version: 6.7.0
+  resolution: "solmate@npm:6.7.0"
+  checksum: 10/f3c4c8d89f3c0c0ad6d2ed737919ce531d097ebcd9c1767a5bd331435a3b2bdc4e8ff5fb057fca5b048cf65ca1cf8c3c556967c820c2471dc23ec82f92ab8dd8
   languageName: node
   linkType: hard
 

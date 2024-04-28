@@ -50,6 +50,7 @@
     "@types/node": "^20.11.17",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
+    "canva-contracts": "github:scroll-tech/canvas-contracts",
     "chai": "4.4.1",
     "chalk": "4.1.2",
     "cross-env": "^7.0.3",

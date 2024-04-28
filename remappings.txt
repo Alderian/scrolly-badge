@@ -3,4 +3,4 @@ forge-std/=node_modules/forge-std/
 hardhat/=node_modules/hardhat/
 @openzeppelin/=node_modules/@openzeppelin/
 @eas/=node_modules/@ethereum-attestation-service/eas-contracts/
-@canva-contracts/=lib/canva-contracts/src
+@canva-contracts/=node_modules/canva-contracts/src/
