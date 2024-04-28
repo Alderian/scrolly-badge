@@ -50,6 +50,10 @@ export enum NetworkName {
   // FANTOM
   FANTOM_MAINNET = "fantom-mainnet",
   FANTOM_TESTNET = "fantom-testnet",
+
+  // SCROLL
+  SCROLL_MAINNET = "scroll-mainnet",
+  SCROLL_TESTNET = "scroll-testnet",
 }
 
 export interface Network {
@@ -130,6 +134,16 @@ export const NETWORKS: { readonly [key in NetworkName]: Network } = {
   [NetworkName.FANTOM_TESTNET]: {
     chainId: 4_002,
     url: `https://rpc.testnet.fantom.network`,
+  },
+
+  // SCROLL
+  [NetworkName.SCROLL_MAINNET]: {
+    chainId: 534_352,
+    url: `https://rpc.scroll.io`,
+  },
+  [NetworkName.SCROLL_TESTNET]: {
+    chainId: 534_351,
+    url: `https://sepolia-rpc.scroll.io`,
   },
 } as const;
 

@@ -33,4 +33,8 @@ export const API_KEYS: string | Record<string, string> | undefined = {
   // FANTOM
   opera: process.env.FANTOM_API_KEY || "",
   ftmTestnet: process.env.FANTOM_API_KEY || "",
+
+  // SCROLL
+  scrollMainnet: process.env.SCROLL_API_KEY || "",
+  scrollTestnet: process.env.SCROLL_API_KEY || "",
 } as const;
