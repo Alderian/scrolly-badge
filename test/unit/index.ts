@@ -4,6 +4,7 @@ import { ethers } from "hardhat";
 
 import type { Contracts, Signers } from "../shared/types";
 import { testLock } from "./lock/Lock";
+import { testScrollBadgeLevelsScrolly } from "./badge/ScrollBadgeLevelsScrolly";
 
 describe("Unit tests", function () {
   before(async function () {
@@ -18,4 +19,5 @@ describe("Unit tests", function () {
   });
 
   testLock();
+  testScrollBadgeLevelsScrolly();
 });
