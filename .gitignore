@@ -34,6 +34,13 @@ yarn-error.log*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+# Avoid server subproject yarn files
+server/.yarn/*
+!server/.yarn/patches
+!server/.yarn/plugins
+!server/.yarn/releases
+!server/.yarn/sdks
+!server/.yarn/versions
 
 # Hardhat files
 flattened
