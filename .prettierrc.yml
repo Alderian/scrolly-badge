@@ -11,6 +11,9 @@ overrides:
   - files: "*.ts"
     options:
       importOrder: ["<THIRD_PARTY_MODULES>", "^[./]"]
-      importOrderParserPlugins: ["typescript"]
+      importOrderParserPlugins: ["typescript", "importAssertions"]
       importOrderSeparation: true
       importOrderSortSpecifiers: true
+  - files: "*.js"
+    options:
+      importOrderParserPlugins: ["importAssertions"]

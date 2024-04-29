@@ -1,4 +1,4 @@
-import  scrollBadgeLevelsScrollyABI from "../../artifacts/contracts/badge/ScrollBadgeLevelsScrolly.sol/ScrollBadgeLevelsScrolly.json" assert { type: "json" };
+import scrollBadgeLevelsScrollyABI from "./abi/ScrollBadgeLevelsScrolly.json" assert { type: "json" };
 import { normalizeAddress } from "./lib.js";
 import "dotenv/config.js";
 import { ethers } from "ethers";
@@ -13,18 +13,18 @@ badges[normalizeAddress(process.env.SIMPLE_BADGE_CONTRACT_ADDRESS)] = {
   address: normalizeAddress(process.env.SIMPLE_BADGE_CONTRACT_ADDRESS),
   proxy: normalizeAddress(process.env.SIMPLE_BADGE_ATTESTER_PROXY_CONTRACT_ADDRESS),
   isEligible: async (recipient) => {
-    let isEligible = false
+    let isEligible = false;
     try {
       const scrollBadgeLevelsScrollyContract = new ethers.Contract(
         process.env.SIMPLE_BADGE_CONTRACT_ADDRESS,
         scrollBadgeLevelsScrollyABI.abi,
         provider
       );
-      isEligible = await scrollBadgeLevelsScrollyContract.isEligible(recipient) ;
+      isEligible = await scrollBadgeLevelsScrollyContract.isEligible(recipient);
     } catch (error) {
       console.log("There was an error checking eligibility for", recipient);
     }
-    return isEligible === true || isEligible === 'true';
+    return isEligible === true || isEligible === "true";
   },
   createPayload: async (/*recipient*/) => "0x",
 };
