@@ -2,7 +2,9 @@
 
 pragma solidity 0.8.19;
 
-contract MockActivityPoints {
+import { IActivityPoints } from "../interfaces/IActivityPoints.sol";
+
+contract MockActivityPoints is IActivityPoints {
     function getPoints(address user_) external pure returns (uint256) {
         if (user_ == address(0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266)) {
             return 1_843_041_647_869_850_000_000;
