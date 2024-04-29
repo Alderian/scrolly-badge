@@ -42,6 +42,7 @@ export function testScrollBadgeLevelsScrolly(): void {
 
       const level = await scrollyBadgeContract.getLevel(user1);
       console.log("User 1 level:", level.toString());
+      expect(level).to.equal(4);
     });
 
     it("checks if user 2 is eligible and level", async function () {
@@ -56,6 +57,7 @@ export function testScrollBadgeLevelsScrolly(): void {
 
       const level = await scrollyBadgeContract.getLevel(user2);
       console.log("User 2 level:", level.toString());
+      expect(level).to.equal(2);
     });
 
     it("checks if user 3 is eligible and level", async function () {
@@ -70,6 +72,7 @@ export function testScrollBadgeLevelsScrolly(): void {
 
       const level = await scrollyBadgeContract.getLevel(user3);
       console.log("User 3 level:", level.toString());
+      expect(level).to.equal(3);
     });
 
     it("checks if user 4 is eligible and level", async function () {
@@ -84,6 +87,7 @@ export function testScrollBadgeLevelsScrolly(): void {
 
       const level = await scrollyBadgeContract.getLevel(user4);
       console.log("User 4 level:", level.toString());
+      expect(level).to.equal(0);
     });
   });
 }

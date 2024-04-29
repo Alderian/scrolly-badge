@@ -35,13 +35,12 @@ contract ScrollBadgeLevelsScrolly is
     ScrollBadgeSingleton,
     ScrollBadgeSelfAttest
 {
-    uint256 public immutable MINIMUM_POINTS_ELIGIBILITY = 1 ether;
-    uint256 public immutable MINIMUM_POINTS_LEVEL_0 = 333 ether;
-    uint256 public immutable MINIMUM_POINTS_LEVEL_1 = 777 ether;
-    uint256 public immutable MINIMUM_POINTS_LEVEL_2 = 1337 ether;
-    uint256 public immutable MINIMUM_POINTS_LEVEL_3 = 2442 ether;
-    uint256 public immutable MINIMUM_POINTS_LEVEL_4 = 4200 ether;
-    // uint256 immutable public MINIMUM_POINTS_LEVEL_5 = inf;
+    uint256 public immutable MINIMUM_POINTS_ELIGIBILITY = 1 ether; // Scrolly Baby
+    uint256 public immutable MINIMUM_POINTS_LEVEL_2 = 333 ether; // Scrolly Novice
+    uint256 public immutable MINIMUM_POINTS_LEVEL_3 = 777 ether; // Scrolly Explorer
+    uint256 public immutable MINIMUM_POINTS_LEVEL_4 = 1337 ether; // Master Mapper
+    uint256 public immutable MINIMUM_POINTS_LEVEL_5 = 2442 ether; // Carto Maestro
+    uint256 public immutable MINIMUM_POINTS_LEVEL_6 = 4200 ether; // Grand Cartographer of Scrolly
 
     address private apAddress; // activity points contract address
     string public baseBadgeURI;
@@ -119,18 +118,20 @@ contract ScrollBadgeLevelsScrolly is
     }
 
     function determineBadgeLevel(uint256 points) public pure returns (uint8) {
-        if (points <= MINIMUM_POINTS_LEVEL_0) {
-            return 0; // Scrolly Baby
-        } else if (points <= MINIMUM_POINTS_LEVEL_1) {
-            return 1; // Scrolly Novice
-        } else if (points <= MINIMUM_POINTS_LEVEL_2) {
-            return 2; // Scrolly Explorer
-        } else if (points <= MINIMUM_POINTS_LEVEL_3) {
-            return 3; // Master Mapper
-        } else if (points <= MINIMUM_POINTS_LEVEL_4) {
-            return 4; // Carto Maestro
+        if (points <= MINIMUM_POINTS_ELIGIBILITY) {
+            return 0; // 0 - unrevealed - minimum not meet
+        } else if (points < MINIMUM_POINTS_LEVEL_2) {
+            return 1; // 1 - Scrolly Baby
+        } else if (points < MINIMUM_POINTS_LEVEL_3) {
+            return 2; // 2- Scrolly Novice
+        } else if (points < MINIMUM_POINTS_LEVEL_4) {
+            return 3; // 3 - Scrolly Explorer
+        } else if (points < MINIMUM_POINTS_LEVEL_5) {
+            return 4; // 4 - Master Mapper
+        } else if (points < MINIMUM_POINTS_LEVEL_6) {
+            return 5; // 5 - Carto Maestro
         } else {
-            return 5; // Grand Cartographer of Scrolly
+            return 6; // 6 - Grand Cartographer of Scrolly
         }
     }
 
