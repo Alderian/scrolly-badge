@@ -100,6 +100,10 @@ app.get("/api/badge/claim", async (req, res) => {
   res.json({ error: null, status: "eligible", tx });
 });
 
+app.get("", async (req, res) => {
+  res.json({ message: "running..." });
+});
+
 // Start the server
 app.listen(process.env.EXPRESS_SERVER_PORT, () => {
   console.log(`Server is running on port ${process.env.EXPRESS_SERVER_PORT}`);
