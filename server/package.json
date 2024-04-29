@@ -6,7 +6,7 @@
   "scripts": {
     "test-env": "./test-env.sh",
     "simple": "node src/attest-simple.js",
-    "server": "node src/server.js"
+    "server": "node src/attest-server.js"
   },
   "keywords": [],
   "author": "",
