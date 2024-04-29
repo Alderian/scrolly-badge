@@ -9,6 +9,8 @@ const isNumeric = (num) =>
   (typeof num === "number" || (typeof num === "string" && num.trim() !== "")) && !isNaN(num);
 
 const app = express();
+app.use(express.json());
+
 const provider = new ethers.JsonRpcProvider(process.env.RPC_ENDPOINT);
 const signer = new ethers.Wallet(process.env.SIGNER_PRIVATE_KEY).connect(provider);
 
@@ -105,6 +107,8 @@ app.get("", async (req, res) => {
 });
 
 // Start the server
-app.listen(process.env.EXPRESS_SERVER_PORT, () => {
-  console.log(`Server is running on port ${process.env.EXPRESS_SERVER_PORT}`);
+const port = process.env.EXPRESS_SERVER_PORT || 9001;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
