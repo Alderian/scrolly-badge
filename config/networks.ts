@@ -52,8 +52,8 @@ export enum NetworkName {
   FANTOM_TESTNET = "fantom-testnet",
 
   // SCROLL
-  SCROLL_MAINNET = "scroll-mainnet",
-  SCROLL_TESTNET = "scroll-testnet",
+  SCROLL_MAINNET = "scrollMainnet",
+  SCROLL_TESTNET = "scrollSepolia",
 }
 
 export interface Network {

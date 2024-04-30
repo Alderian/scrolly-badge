@@ -36,5 +36,5 @@ export const API_KEYS: string | Record<string, string> | undefined = {
 
   // SCROLL
   scrollMainnet: process.env.SCROLL_API_KEY || "",
-  scrollTestnet: process.env.SCROLL_API_KEY || "",
+  scrollSepolia: process.env.SCROLL_API_KEY || "",
 } as const;

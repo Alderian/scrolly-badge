@@ -81,6 +81,16 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: API_KEYS,
+    customChains: [
+      {
+        network: "scrollSepolia",
+        chainId: 534351,
+        urls: {
+          apiURL: "https://api-sepolia.scrollscan.com/api",
+          browserURL: "https://sepolia.scrollscan.com/",
+        },
+      },
+    ],
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS ? true : false,
