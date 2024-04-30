@@ -13,24 +13,24 @@ const RESOLVER_ADDRESS = process.env.RESOLVER_ADDRESS;
 if (typeof RESOLVER_ADDRESS === "undefined") {
   console.log(`RESOLVER_ADDRESS must be a defined environment variable`);
 }
-// const RESOLVER_ADDRESS = "0x90F79bf6EB2c4f870365E785982E1f101E93b906";
+// const RESOLVER_ADDRESS = "0xd2270b3540FD2220Fa1025414e1625af8B0dd8f3";
 
 const ACTIVITY_POINTS_ADDRESS = process.env.ACTIVITY_POINTS_ADDRESS;
 if (typeof ACTIVITY_POINTS_ADDRESS === "undefined") {
-  console.log(`RESOLVER_ADDRESS must be a defined environment variable`);
+  console.log(`ACTIVITY_POINTS_ADDRESS must be a defined environment variable`);
 }
 // const ACTIVITY_POINTS_ADDRESS = "0x90F79bf6EB2c4f870365E785982E1f101E93b906";
 
 const DEFAULT_BADGE_URI = process.env.DEFAULT_BADGE_URI;
 if (typeof DEFAULT_BADGE_URI === "undefined") {
-  console.log(`RESOLVER_ADDRESS must be a defined environment variable`);
+  console.log(`DEFAULT_BADGE_URI must be a defined environment variable`);
 }
 // const DEFAULT_BADGE_URI =
 //   "https://cyan-passive-guan-475.mypinata.cloud/ipfs/QmPwheo42BLNfmXDss3zz7iAPX7HCzXEsSjSaxMjmrvp3Y/0.png";
 
 const BASE_BADGE_URI = process.env.BASE_BADGE_URI;
 if (typeof BASE_BADGE_URI === "undefined") {
-  console.log(`RESOLVER_ADDRESS must be a defined environment variable`);
+  console.log(`BASE_BADGE_URI must be a defined environment variable`);
 }
 // const BASE_BADGE_URI =
 //   "https://cyan-passive-guan-475.mypinata.cloud/ipfs/QmPwheo42BLNfmXDss3zz7iAPX7HCzXEsSjSaxMjmrvp3Y/";

@@ -11,7 +11,6 @@ import { ScrollBadgeDefaultURI } from "@canva-contracts/badge/extensions/ScrollB
 import { ScrollBadgeEligibilityCheck } from
     "@canva-contracts/badge/extensions/ScrollBadgeEligibilityCheck.sol";
 import { ScrollBadgeNoExpiry } from "@canva-contracts/badge/extensions/ScrollBadgeNoExpiry.sol";
-import { ScrollBadgeSelfAttest } from "@canva-contracts/badge/extensions/ScrollBadgeSelfAttest.sol";
 import { ScrollBadgeSingleton } from "@canva-contracts/badge/extensions/ScrollBadgeSingleton.sol";
 import { ScrollBadge } from "@canva-contracts/badge/ScrollBadge.sol";
 import { Unauthorized } from "@canva-contracts/Errors.sol";
@@ -32,8 +31,7 @@ contract ScrollBadgeLevelsScrolly is
     ScrollBadgeDefaultURI,
     ScrollBadgeEligibilityCheck,
     ScrollBadgeNoExpiry,
-    ScrollBadgeSingleton,
-    ScrollBadgeSelfAttest
+    ScrollBadgeSingleton
 {
     uint256 public immutable MINIMUM_POINTS_ELIGIBILITY = 1 ether; // Scrolly Baby
     uint256 public immutable MINIMUM_POINTS_LEVEL_2 = 333 ether; // Scrolly Novice
@@ -61,13 +59,7 @@ contract ScrollBadgeLevelsScrolly is
     /// @inheritdoc ScrollBadge
     function onIssueBadge(Attestation calldata attestation)
         internal
-        override(
-            ScrollBadge,
-            ScrollBadgeAccessControl,
-            ScrollBadgeNoExpiry,
-            ScrollBadgeSingleton,
-            ScrollBadgeSelfAttest
-        )
+        override(ScrollBadge, ScrollBadgeAccessControl, ScrollBadgeNoExpiry, ScrollBadgeSingleton)
         returns (bool)
     {
         if (!isEligible(attestation.recipient)) {
@@ -80,13 +72,7 @@ contract ScrollBadgeLevelsScrolly is
     /// @inheritdoc ScrollBadge
     function onRevokeBadge(Attestation calldata attestation)
         internal
-        override(
-            ScrollBadge,
-            ScrollBadgeAccessControl,
-            ScrollBadgeNoExpiry,
-            ScrollBadgeSingleton,
-            ScrollBadgeSelfAttest
-        )
+        override(ScrollBadge, ScrollBadgeAccessControl, ScrollBadgeNoExpiry, ScrollBadgeSingleton)
         returns (bool)
     {
         return super.onRevokeBadge(attestation);
