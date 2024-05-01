@@ -52,6 +52,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     });
   }
 
+  // Set permissions
+
   console.log(
     " 📄 Toogle attester for ",
     chalk.greenBright(deployResult.address),
@@ -66,6 +68,13 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   );
 
   console.log("(tx:", tx1.hash);
+
+  console.log(
+    " 📄 Toogle attester for ",
+    chalk.greenBright(deployer),
+    "on proxy:",
+    chalk.cyan(deployResult.address)
+  );
 
   // Toogle deployer on attesterProxy
   const attasterProxy = await hre.ethers.getContractAt("AttesterProxy", deployResult.address);

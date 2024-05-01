@@ -40,7 +40,7 @@ contract ScrollBadgeLevelsScrolly is
     uint256 public immutable MINIMUM_POINTS_LEVEL_5 = 2442 ether; // Carto Maestro
     uint256 public immutable MINIMUM_POINTS_LEVEL_6 = 4200 ether; // Grand Cartographer of Scrolly
 
-    address private apAddress; // activity points contract address
+    address public apAddress; // activity points contract address
     string public baseBadgeURI;
 
     constructor(
@@ -127,5 +127,9 @@ contract ScrollBadgeLevelsScrolly is
 
     function setBaseBadgeURI(string memory _baseBadgeURI) external onlyOwner {
         baseBadgeURI = _baseBadgeURI;
+    }
+
+    function setApAddress(address _apAddress) external onlyOwner {
+        apAddress = _apAddress;
     }
 }
