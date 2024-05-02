@@ -1,9 +1,28 @@
 // npx hardhat test test/scrolly.test.js
 import { expect } from "chai";
+import { config as dotenvConfig } from "dotenv";
 import { formatEther } from "ethers";
 import { ethers } from "hardhat";
+import { resolve } from "path";
 
 import { ScrollBadgeLevelsScrolly } from "../../../types";
+
+const dotenvConfigPath: string = process.env.DOTENV_CONFIG_PATH || "./.env";
+dotenvConfig({ path: resolve(process.cwd(), dotenvConfigPath) });
+
+const DEFAULT_BADGE_URI = process.env.DEFAULT_BADGE_URI;
+if (typeof DEFAULT_BADGE_URI === "undefined") {
+  console.log(`DEFAULT_BADGE_URI must be a defined environment variable`);
+}
+// const DEFAULT_BADGE_URI =
+//   "https://cyan-passive-guan-475.mypinata.cloud/ipfs/QmPwheo42BLNfmXDss3zz7iAPX7HCzXEsSjSaxMjmrvp3Y/0.png";
+
+const BASE_BADGE_URI = process.env.BASE_BADGE_URI;
+if (typeof BASE_BADGE_URI === "undefined") {
+  console.log(`BASE_BADGE_URI must be a defined environment variable`);
+}
+// const BASE_BADGE_URI =
+//   "https://cyan-passive-guan-475.mypinata.cloud/ipfs/QmPwheo42BLNfmXDss3zz7iAPX7HCzXEsSjSaxMjmrvp3Y/";
 
 export function testScrollBadgeLevelsScrolly(): void {
   describe("Scrolly Badge test", function () {
@@ -24,8 +43,8 @@ export function testScrollBadgeLevelsScrolly(): void {
       scrollyBadgeContract = await ScrollBadgeLevelsScrolly.deploy(
         fakeResolver,
         await mockActivityPointsContract.getAddress(),
-        "https...", // default badge URI
-        "https..." // base badge URI
+        DEFAULT_BADGE_URI || "https...", // default badge URI
+        BASE_BADGE_URI || "https..." // base badge URI
       );
       await scrollyBadgeContract.waitForDeployment();
     });
@@ -43,6 +62,10 @@ export function testScrollBadgeLevelsScrolly(): void {
       const level = await scrollyBadgeContract.getLevel(user1);
       console.log("User 1 level:", level.toString());
       expect(level).to.equal(4);
+
+      const url = await scrollyBadgeContract.getTokenURI(user1);
+      console.log("User 1 url:", url);
+      expect(url).to.equal(`${BASE_BADGE_URI}${level}.json`);
     });
 
     it("checks if user 2 is eligible and level", async function () {
@@ -58,6 +81,10 @@ export function testScrollBadgeLevelsScrolly(): void {
       const level = await scrollyBadgeContract.getLevel(user2);
       console.log("User 2 level:", level.toString());
       expect(level).to.equal(2);
+
+      const url = await scrollyBadgeContract.getTokenURI(user2);
+      console.log("User 2 url:", url);
+      expect(url).to.equal(`${BASE_BADGE_URI}${level}.json`);
     });
 
     it("checks if user 3 is eligible and level", async function () {
@@ -73,6 +100,10 @@ export function testScrollBadgeLevelsScrolly(): void {
       const level = await scrollyBadgeContract.getLevel(user3);
       console.log("User 3 level:", level.toString());
       expect(level).to.equal(3);
+
+      const url = await scrollyBadgeContract.getTokenURI(user3);
+      console.log("User 3 url:", url);
+      expect(url).to.equal(`${BASE_BADGE_URI}${level}.json`);
     });
 
     it("checks if user 4 is eligible and level", async function () {
@@ -88,6 +119,10 @@ export function testScrollBadgeLevelsScrolly(): void {
       const level = await scrollyBadgeContract.getLevel(user4);
       console.log("User 4 level:", level.toString());
       expect(level).to.equal(0);
+
+      const url = await scrollyBadgeContract.getTokenURI(user4);
+      console.log("User 4 url:", url);
+      expect(url).to.equal(`${BASE_BADGE_URI}${level}.json`);
     });
   });
 }

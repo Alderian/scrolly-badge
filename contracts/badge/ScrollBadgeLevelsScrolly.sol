@@ -83,7 +83,7 @@ contract ScrollBadgeLevelsScrolly is
         // We get current user level from latest attestation (using provided badge logic)
         uint8 level = getCurrentLevel(uid);
 
-        return string(abi.encode(baseBadgeURI, Strings.toString(level), ".json"));
+        return string(abi.encodePacked(baseBadgeURI, Strings.toString(level), ".json"));
     }
 
     function getCurrentLevel(bytes32 uid) public view returns (uint8) {
@@ -93,6 +93,16 @@ contract ScrollBadgeLevelsScrolly is
 
     function isEligible(address recipient) public view override returns (bool) {
         return (IActivityPoints(apAddress).getPoints(recipient) >= MINIMUM_POINTS_ELIGIBILITY);
+    }
+
+    /**
+     * @dev This makes it easier to get the badge url using user address
+     */
+    function getTokenURI(address recipient) external view returns (string memory) {
+        // We get current user level from latest attestation (using provided badge logic)
+        uint8 level = getLevel(recipient);
+
+        return string(abi.encodePacked(baseBadgeURI, Strings.toString(level), ".json"));
     }
 
     function getPoints(address recipient) public view returns (uint256) {
