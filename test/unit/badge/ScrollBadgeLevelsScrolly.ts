@@ -10,19 +10,8 @@ import { ScrollBadgeLevelsScrolly } from "../../../types";
 const dotenvConfigPath: string = process.env.DOTENV_CONFIG_PATH || "./.env";
 dotenvConfig({ path: resolve(process.cwd(), dotenvConfigPath) });
 
-const DEFAULT_BADGE_URI = process.env.DEFAULT_BADGE_URI;
-if (typeof DEFAULT_BADGE_URI === "undefined") {
-  console.log(`DEFAULT_BADGE_URI must be a defined environment variable`);
-}
-// const DEFAULT_BADGE_URI =
-//   "https://cyan-passive-guan-475.mypinata.cloud/ipfs/QmPwheo42BLNfmXDss3zz7iAPX7HCzXEsSjSaxMjmrvp3Y/0.png";
-
-const BASE_BADGE_URI = process.env.BASE_BADGE_URI;
-if (typeof BASE_BADGE_URI === "undefined") {
-  console.log(`BASE_BADGE_URI must be a defined environment variable`);
-}
-// const BASE_BADGE_URI =
-//   "https://cyan-passive-guan-475.mypinata.cloud/ipfs/QmPwheo42BLNfmXDss3zz7iAPX7HCzXEsSjSaxMjmrvp3Y/";
+const DEFAULT_BADGE_URI = process.env.DEFAULT_BADGE_UR || "https...";
+const BASE_BADGE_URI = process.env.BASE_BADGE_URI || "https...";
 
 export function testScrollBadgeLevelsScrolly(): void {
   describe("Scrolly Badge test", function () {
@@ -43,8 +32,8 @@ export function testScrollBadgeLevelsScrolly(): void {
       scrollyBadgeContract = await ScrollBadgeLevelsScrolly.deploy(
         fakeResolver,
         await mockActivityPointsContract.getAddress(),
-        DEFAULT_BADGE_URI || "https...", // default badge URI
-        BASE_BADGE_URI || "https..." // base badge URI
+        DEFAULT_BADGE_URI, // default badge URI
+        BASE_BADGE_URI // base badge URI
       );
       await scrollyBadgeContract.waitForDeployment();
     });
