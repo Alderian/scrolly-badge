@@ -5,7 +5,7 @@
       "chainId": "534351",
       "contracts": {
         "ScrollBadgeLevelsScrolly": {
-          "address": "0x2ABB53598059F4e15cE380c717ae7688F8E3A6AA",
+          "address": "0x9bc5af171bCE66c647E17D010664a3366d2CeA28",
           "abi": [
             {
               "inputs": [
@@ -382,6 +382,25 @@
                   "internalType": "uint256",
                   "name": "",
                   "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "recipient",
+                  "type": "address"
+                }
+              ],
+              "name": "getTokenURI",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
                 }
               ],
               "stateMutability": "view",
