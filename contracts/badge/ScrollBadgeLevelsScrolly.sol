@@ -34,12 +34,11 @@ contract ScrollBadgeLevelsScrolly is
     ScrollBadgeSingleton
 {
     uint256 public immutable MINIMUM_POINTS_ELIGIBILITY = 1 ether; // Scrolly Baby
-    uint256 public immutable MINIMUM_POINTS_LEVEL_2 = 333 ether; // Scrolly Novice
-    uint256 public immutable MINIMUM_POINTS_LEVEL_3 = 777 ether; // Scrolly Explorer
-    uint256 public immutable MINIMUM_POINTS_LEVEL_4 = 1337 ether; // Master Mapper
-    uint256 public immutable MINIMUM_POINTS_LEVEL_5 = 2442 ether; // Carto Maestro
-    uint256 public immutable MINIMUM_POINTS_LEVEL_6 = 4200 ether; // Grand Cartographer of Scrolly
-
+    uint256 public immutable MINIMUM_POINTS_LEVEL_2 = 667 ether; // Scrolly Novice
+    uint256 public immutable MINIMUM_POINTS_LEVEL_3 = 1221 ether; // Scrolly Explorer
+    uint256 public immutable MINIMUM_POINTS_LEVEL_4 = 2442 ether; // Master Mapper
+    uint256 public immutable MINIMUM_POINTS_LEVEL_5 = 4200 ether; // Carto Maestro
+    uint256 public immutable MINIMUM_POINTS_LEVEL_6 = 6000 ether; // Grand Cartographer of Scrolly
     address public apAddress; // activity points contract address
     string public baseBadgeURI;
 

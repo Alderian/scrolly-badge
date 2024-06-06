@@ -9,11 +9,10 @@ import { verifyContract } from "../utils/verify";
 const dotenvConfigPath: string = process.env.DOTENV_CONFIG_PATH || "./.env";
 dotenvConfig({ path: resolve(process.cwd(), dotenvConfigPath) });
 
-const EAS_ADDRESS = process.env.SCROLL_SEPOLIA_EAS_ADDRESS;
+const EAS_ADDRESS = process.env.SCROLL_EAS_ADDRESS;
 if (typeof EAS_ADDRESS === "undefined") {
-  console.log(`SCROLL_SEPOLIA_EAS_ADDRESS must be a defined environment variable`);
+  console.log(`SCROLL_EAS_ADDRESS must be a defined environment variable`);
 }
-// const SCROLL_SEPOLIA_EAS_ADDRESS = "0xaEF4103A04090071165F78D45D83A0C0782c2B2a";
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { getNamedAccounts, getChainId, deployments } = hre;

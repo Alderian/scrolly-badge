@@ -85,14 +85,11 @@
   ],
   "keywords": [
     "blockchain",
-    "ethereum",
-    "hardhat",
-    "forge",
-    "foundry",
+    "scroll",
+    "scrolly",
     "smart-contracts",
     "solidity",
-    "template"
-  ],
-  "license": "UNLICENSED",
-  "packageManager": "yarn@4.1.1"
+    "badge",
+    "EAS"
+  ]
 }

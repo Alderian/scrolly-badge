@@ -38,7 +38,7 @@ export function testScrollBadgeLevelsScrolly(): void {
       await scrollyBadgeContract.waitForDeployment();
     });
 
-    it("checks if user 1 is eligible and level", async function () {
+    it("checks if user 1 is eligible and level 3", async function () {
       // get points of user1
       const points = await scrollyBadgeContract.getPoints(user1);
       console.log("User 1 points in wei:", points.toString());
@@ -50,14 +50,14 @@ export function testScrollBadgeLevelsScrolly(): void {
 
       const level = await scrollyBadgeContract.getLevel(user1);
       console.log("User 1 level:", level.toString());
-      expect(level).to.equal(4);
+      expect(level).to.equal(3);
 
       const url = await scrollyBadgeContract.getTokenURI(user1);
       console.log("User 1 url:", url);
       expect(url).to.equal(`${BASE_BADGE_URI}${level}.json`);
     });
 
-    it("checks if user 2 is eligible and level", async function () {
+    it("checks if user 2 is eligible and level 1", async function () {
       // get points of user2
       const points = await scrollyBadgeContract.getPoints(user2);
       console.log("User 2 points in wei:", points.toString());
@@ -69,14 +69,14 @@ export function testScrollBadgeLevelsScrolly(): void {
 
       const level = await scrollyBadgeContract.getLevel(user2);
       console.log("User 2 level:", level.toString());
-      expect(level).to.equal(2);
+      expect(level).to.equal(1);
 
       const url = await scrollyBadgeContract.getTokenURI(user2);
       console.log("User 2 url:", url);
       expect(url).to.equal(`${BASE_BADGE_URI}${level}.json`);
     });
 
-    it("checks if user 3 is eligible and level", async function () {
+    it("checks if user 3 is eligible and level 2", async function () {
       // get points of user3
       const points = await scrollyBadgeContract.getPoints(user3);
       console.log("User 3 points in wei:", points.toString());
@@ -88,14 +88,14 @@ export function testScrollBadgeLevelsScrolly(): void {
 
       const level = await scrollyBadgeContract.getLevel(user3);
       console.log("User 3 level:", level.toString());
-      expect(level).to.equal(3);
+      expect(level).to.equal(2);
 
       const url = await scrollyBadgeContract.getTokenURI(user3);
       console.log("User 3 url:", url);
       expect(url).to.equal(`${BASE_BADGE_URI}${level}.json`);
     });
 
-    it("checks if user 4 is eligible and level", async function () {
+    it("checks if user 4 is eligible and level 0", async function () {
       // get points of user4
       const points = await scrollyBadgeContract.getPoints(user4);
       console.log("User 4 points in wei:", points.toString());

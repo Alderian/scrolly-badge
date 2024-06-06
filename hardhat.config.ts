@@ -90,6 +90,14 @@ const config: HardhatUserConfig = {
           browserURL: "https://sepolia.scrollscan.com/",
         },
       },
+      {
+        network: "scrollMainnet",
+        chainId: 534352,
+        urls: {
+          apiURL: "https://api.scrollscan.com/api",
+          browserURL: "https://scrollscan.com/",
+        },
+      },
     ],
   },
   gasReporter: {
