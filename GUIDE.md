@@ -1,8 +1,8 @@
 # Foundry + Hardhat Template [![Open in Gitpod][gitpod-badge]][gitpod] [![Github Actions][gha-badge]][gha] [![Foundry][foundry-badge]][foundry] [![Hardhat][hardhat-badge]][hardhat]
 
-[gitpod]: https://gitpod.io/#https://github.com/Alderian/test-badge
+[gitpod]: https://gitpod.io/#https://github.com/ahmedali8/foundry-hardhat-template/
 [gitpod-badge]: https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-FFB45B?logo=gitpod
-[gha]: https://github.com/Alderian/test-badge/actions
+[gha]: https://github.com/ahmedali8/foundry-hardhat-template/actions
 [gha-badge]:
   https://github.com/ahmedali8/foundry-hardhat-template/actions/workflows/ci.yml/badge.svg
 [hardhat]: https://hardhat.org/
