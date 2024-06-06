@@ -7,6 +7,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { getNamedAccounts, deployments } = hre;
   const { deployer } = await getNamedAccounts();
 
+  const ATTESTER_ADDRESS = process.env.ATTESTER_ADDRESS || deployer;
+
   const badgeDeployment = await deployments.get("ScrollBadgeLevelsScrolly");
   const scrollBadgeLevelsScrolly = await hre.ethers.getContractAt(
     "ScrollBadgeLevelsScrolly",
@@ -36,12 +38,15 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   // Toogle deployer on attesterProxy
   console.log(
     " 📄 Toogle deployer:",
-    chalk.greenBright(deployer),
+    chalk.greenBright(ATTESTER_ADDRESS),
     "on attesterProxy:",
     chalk.cyan(proxyDeployment.address)
   );
 
-  const tx2: ContractTransactionResponse = await attesterProxy.toggleAttester(deployer, true);
+  const tx2: ContractTransactionResponse = await attesterProxy.toggleAttester(
+    ATTESTER_ADDRESS,
+    true
+  );
 
   console.log("(tx2:", tx2.hash);
 };
