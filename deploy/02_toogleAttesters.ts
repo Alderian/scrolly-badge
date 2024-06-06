@@ -1,7 +1,10 @@
 import chalk from "chalk";
 import { ContractTransactionResponse } from "ethers";
+import { ethers } from "hardhat";
 import type { DeployFunction } from "hardhat-deploy/types";
 import type { HardhatRuntimeEnvironment } from "hardhat/types";
+
+import { fromWei } from "../utils/format";
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { getNamedAccounts, deployments } = hre;
@@ -37,7 +40,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   // Toogle deployer on attesterProxy
   console.log(
-    " 📄 Toogle deployer:",
+    " 📄 Toogle attester:",
     chalk.greenBright(ATTESTER_ADDRESS),
     "on attesterProxy:",
     chalk.cyan(proxyDeployment.address)
@@ -49,6 +52,11 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   );
 
   console.log("(tx2:", tx2.hash);
+
+  const ethBalance = await ethers.provider.getBalance(deployer);
+  console.log(
+    ` 🎭 Deployer: ${chalk.cyan(deployer)}, Balance: ${chalk.grey(fromWei(ethBalance ?? 0))} ETH`
+  );
 };
 
 export default func;
