@@ -17,10 +17,6 @@ import { Unauthorized } from "@canva-contracts/Errors.sol";
 
 import { IActivityPoints } from "../interfaces/IActivityPoints.sol";
 
-function decodePayloadData(bytes memory data) pure returns (uint8) {
-    return abi.decode(data, (uint8));
-}
-
 /**
  * @title ScrollBadgeLevelsScrolly
  * @author Alderian
@@ -42,6 +38,8 @@ contract ScrollBadgeLevelsScrolly is
     address public apAddress; // activity points contract address
     string public baseBadgeURI;
 
+    error ZeroAddress();
+
     constructor(
         address resolver_,
         address activityPoints_,
@@ -51,6 +49,10 @@ contract ScrollBadgeLevelsScrolly is
         ScrollBadge(resolver_)
         ScrollBadgeDefaultURI(_defaultBadgeURI)
     {
+        if (activityPoints_ == address(0)) {
+            revert ZeroAddress();
+        }
+
         apAddress = activityPoints_;
         baseBadgeURI = _baseBadgeURI;
     }
@@ -139,6 +141,9 @@ contract ScrollBadgeLevelsScrolly is
     }
 
     function setApAddress(address _apAddress) external onlyOwner {
+        if (_apAddress == address(0)) {
+            revert ZeroAddress();
+        }
         apAddress = _apAddress;
     }
 }
